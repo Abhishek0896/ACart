@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:title="Home"
+        android:id="@+id/bottom_home"
+        app:showAsAction="always"
+        android:icon="@drawable/home"/>
+
+    <item
+        android:title="Products"
+        app:showAsAction="always"
+        android:enabled="true"
+        android:id="@+id/bottom_product"
+        android:icon="@drawable/product"/>
+    <item
+        android:title="Favourites"
+        app:showAsAction="always"
+        android:id="@+id/bottom_fav"
+
+        android:icon="@drawable/fav_bottom"/>
+    <item
+        android:title="Checkout"
+        app:showAsAction="always"
+        android:id="@+id/bottom_checkout"
+        android:icon="@drawable/pay"/>
+
+</menu>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="id_activityScreenTitles">
+        <item>Cart</item>
+        <item>Offers</item>
+        <item>My Wishlist</item>
+        <item>Notification</item>
+        <item>Profile</item>
+        <item>Setting</item>
+        <item>Help</item>
+        <item>Privacy Policy</item>
+    <item/>
+        <item>Logout</item>
+    </string-array>
+
+    <array name="id_activityScreenIcon">
+        <item>@drawable/cart</item>
+        <item>@drawable/offer</item>
+        <item>@drawable/wishlist</item>
+        <item>@drawable/notification</item>
+        <item>@drawable/logo</item>
+        <item>@drawable/setting</item>
+        <item>@drawable/help</item>
+        <item>@drawable/policy</item>
+        <item>0</item>
+        <item>@drawable/logout</item>
+    </array>
+
+</resources>
