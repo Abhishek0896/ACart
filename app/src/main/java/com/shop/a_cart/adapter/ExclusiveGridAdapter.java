@@ -9,17 +9,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.shop.a_cart.R;
-import com.shop.a_cart.model.Popular;
+import com.shop.a_cart.model.Product;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ExclusiveGridAdapter extends BaseAdapter {
 
-    List<Popular> RecommendedProduct = new ArrayList<>();
+    List<Product> RecommendedProduct = new ArrayList<>();
     Context context;
 
-    public ExclusiveGridAdapter(List<Popular> recommendedProduct, Context context) {
+    public ExclusiveGridAdapter(List<Product> recommendedProduct, Context context) {
         RecommendedProduct = recommendedProduct;
         this.context = context;
     }

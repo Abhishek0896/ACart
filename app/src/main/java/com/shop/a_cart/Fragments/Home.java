@@ -1,30 +1,30 @@
 package com.shop.a_cart.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.GridView;
-import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.linyuzai.expandablegridview.ExpandableGridView;
 import com.linyuzai.expandablegridview.adapter.SimpleExpandableGridAdapter;
 import com.shop.a_cart.LayoutManager.CenterZoomLayoutManager;
+import com.shop.a_cart.ProductsActivity;
 import com.shop.a_cart.R;
 import com.shop.a_cart.adapter.ExclusiveGridAdapter;
 import com.shop.a_cart.adapter.PopularAdapter;
 import com.shop.a_cart.adapter.RecommendedAdapter;
-import com.shop.a_cart.model.Popular;
+import com.shop.a_cart.model.Product;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,10 +38,30 @@ public class Home extends Fragment {
     ViewGroup root;
     ExclusiveGridAdapter gridAdapter;
     GridView exclusiveproductgridview;
+    TextView uname;
+    FloatingActionButton floatingActionButton;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         root = (ViewGroup) inflater.inflate(R.layout.home_frag, container, false);
         exclusiveproductgridview =(GridView) root.findViewById(R.id.exclusiveproductgrid);
+        floatingActionButton = (FloatingActionButton) getActivity().findViewById(R.id.floatingActionButton2);
+        final FragmentTransaction ft = getFragmentManager().beginTransaction();
+        uname = root.findViewById(R.id.uname);
+        uname.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), ProductsActivity.class);
+                v.getContext().startActivity(intent);
+            }
+        });
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CartFragment frag = new CartFragment();
+                ft.replace(R.id.container, frag);
+                ft.commit();
+            }
+        });
         //Call  popular products
         setPopularRecyler();
         setRecommendedGrid();
@@ -49,16 +69,17 @@ public class Home extends Fragment {
         return root;
     }
 
+
     private void setPopularRecyler()
     {
-        List<Popular> popularprod = new ArrayList<>();
-        popularprod.add(new Popular("Red T-Shirt","$7.05",R.drawable.buy_1));
-        popularprod.add(new Popular("Hand Bag","$10.95",R.drawable.bag_3));
-        popularprod.add(new Popular("Hand Bag","$5.05",R.drawable.bag_4));
-        popularprod.add(new Popular("HeadPhone","$21.15",R.drawable.headphone_5));
-        popularprod.add(new Popular("HeadPhone","$15.43",R.drawable.headphone_6));
-        popularprod.add(new Popular("Roadster Watch","$19.08",R.drawable.product9));
-        popularprod.add(new Popular("Fossil Watch","$18.75",R.drawable.product8));
+        List<Product> popularprod = new ArrayList<>();
+        popularprod.add(new Product("Red T-Shirt","$7.05",R.drawable.buy_1));
+        popularprod.add(new Product("Hand Bag","$10.95",R.drawable.bag_3));
+        popularprod.add(new Product("Hand Bag","$5.05",R.drawable.bag_4));
+        popularprod.add(new Product("HeadPhone","$21.15",R.drawable.headphone_5));
+        popularprod.add(new Product("HeadPhone","$15.43",R.drawable.headphone_6));
+        popularprod.add(new Product("Roadster Watch","$19.08",R.drawable.product9));
+        popularprod.add(new Product("Fossil Watch","$18.75",R.drawable.product8));
         poplist = (RecyclerView) root.findViewById(R.id.poplist);
         CenterZoomLayoutManager layoutManager = new CenterZoomLayoutManager(getActivity(), 0,false);
         poplist.setLayoutManager(layoutManager);
@@ -70,31 +91,31 @@ public class Home extends Fragment {
     {
         SimpleExpandableGridAdapter<String> expandableGridAdapter;
         List<List<String>> strings = new ArrayList<>();
-        List<Popular> recommendProd = new ArrayList<>();
-        recommendProd.add(new Popular("Diamong Ring","$190.75",R.drawable.ring_2));
-        recommendProd.add(new Popular("Official Shoe","$19.15",R.drawable.shoeman_3));
-        recommendProd.add(new Popular("Black Cap","$11.05",R.drawable.cap_6));
-        recommendProd.add(new Popular("Denim Jeans","$21.50",R.drawable.jeans_1));
-        recommendProd.add(new Popular("Black Jeans","$34.75",R.drawable.jeans_2));
-        recommendProd.add(new Popular("High Top Sneakers","$28.13",R.drawable.womanshoe_5));
-        recommendProd.add(new Popular("Diamong Ring","$190.75",R.drawable.ring_2));
-        recommendProd.add(new Popular("Official Shoe","$19.15",R.drawable.shoeman_3));
-        recommendProd.add(new Popular("Black Cap","$11.05",R.drawable.cap_6));
-        recommendProd.add(new Popular("Denim Jeans","$21.50",R.drawable.jeans_1));
-        recommendProd.add(new Popular("Black Jeans","$34.75",R.drawable.jeans_2));
-        recommendProd.add(new Popular("High Top Sneakers","$28.13",R.drawable.womanshoe_5));
-        recommendProd.add(new Popular("Diamong Ring","$190.75",R.drawable.ring_2));
-        recommendProd.add(new Popular("Official Shoe","$19.15",R.drawable.shoeman_3));
-        recommendProd.add(new Popular("Black Cap","$11.05",R.drawable.cap_6));
-        recommendProd.add(new Popular("Denim Jeans","$21.50",R.drawable.jeans_1));
-        recommendProd.add(new Popular("Black Jeans","$34.75",R.drawable.jeans_2));
-        recommendProd.add(new Popular("High Top Sneakers","$28.13",R.drawable.womanshoe_5));
-        recommendProd.add(new Popular("Diamong Ring","$190.75",R.drawable.ring_2));
-        recommendProd.add(new Popular("Official Shoe","$19.15",R.drawable.shoeman_3));
-        recommendProd.add(new Popular("Black Cap","$11.05",R.drawable.cap_6));
-        recommendProd.add(new Popular("Denim Jeans","$21.50",R.drawable.jeans_1));
-        recommendProd.add(new Popular("Black Jeans","$34.75",R.drawable.jeans_2));
-        recommendProd.add(new Popular("High Top Sneakers","$28.13",R.drawable.womanshoe_5));
+        List<Product> recommendProd = new ArrayList<>();
+        recommendProd.add(new Product("Diamong Ring","$190.75",R.drawable.ring_2));
+        recommendProd.add(new Product("Official Shoe","$19.15",R.drawable.shoeman_3));
+        recommendProd.add(new Product("Black Cap","$11.05",R.drawable.cap_6));
+        recommendProd.add(new Product("Denim Jeans","$21.50",R.drawable.jeans_1));
+        recommendProd.add(new Product("Black Jeans","$34.75",R.drawable.jeans_2));
+        recommendProd.add(new Product("High Top Sneakers","$28.13",R.drawable.womanshoe_5));
+        recommendProd.add(new Product("Diamong Ring","$190.75",R.drawable.ring_2));
+        recommendProd.add(new Product("Official Shoe","$19.15",R.drawable.shoeman_3));
+        recommendProd.add(new Product("Black Cap","$11.05",R.drawable.cap_6));
+        recommendProd.add(new Product("Denim Jeans","$21.50",R.drawable.jeans_1));
+        recommendProd.add(new Product("Black Jeans","$34.75",R.drawable.jeans_2));
+        recommendProd.add(new Product("High Top Sneakers","$28.13",R.drawable.womanshoe_5));
+        recommendProd.add(new Product("Diamong Ring","$190.75",R.drawable.ring_2));
+        recommendProd.add(new Product("Official Shoe","$19.15",R.drawable.shoeman_3));
+        recommendProd.add(new Product("Black Cap","$11.05",R.drawable.cap_6));
+        recommendProd.add(new Product("Denim Jeans","$21.50",R.drawable.jeans_1));
+        recommendProd.add(new Product("Black Jeans","$34.75",R.drawable.jeans_2));
+        recommendProd.add(new Product("High Top Sneakers","$28.13",R.drawable.womanshoe_5));
+        recommendProd.add(new Product("Diamong Ring","$190.75",R.drawable.ring_2));
+        recommendProd.add(new Product("Official Shoe","$19.15",R.drawable.shoeman_3));
+        recommendProd.add(new Product("Black Cap","$11.05",R.drawable.cap_6));
+        recommendProd.add(new Product("Denim Jeans","$21.50",R.drawable.jeans_1));
+        recommendProd.add(new Product("Black Jeans","$34.75",R.drawable.jeans_2));
+        recommendProd.add(new Product("High Top Sneakers","$28.13",R.drawable.womanshoe_5));
 
         gridAdapter = new ExclusiveGridAdapter(recommendProd,getActivity());
         exclusiveproductgridview.setAdapter(gridAdapter);

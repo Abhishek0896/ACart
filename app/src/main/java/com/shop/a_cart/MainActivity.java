@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -18,11 +19,14 @@ import android.widget.Toast;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.bottomappbar.BottomAppBar;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.shop.a_cart.Fragments.CartFragment;
 import com.shop.a_cart.Fragments.HelpFrag;
 import com.shop.a_cart.Fragments.Home;
 import com.shop.a_cart.Fragments.NotificationFragment;
+import com.shop.a_cart.Fragments.Order;
 import com.shop.a_cart.Fragments.PrivacyFrag;
+import com.shop.a_cart.Fragments.Profile;
 import com.shop.a_cart.Fragments.SettingFrag;
 import com.shop.a_cart.Fragments.WishlistFragment;
 import com.shop.a_cart.adapter.Drawer.DrawerAdapter;
@@ -42,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
 
     private static final int POS_NOTIFICATION = 3;
     private static final int POS_CART = 0;
-    private static final int POS_OFFER = 1;
+    private static final int POS_ORDER = 1;
     private static final int POS_BlANK = 8;
     private static final int POS_LOGOUT = 9;
     private static final int POS_SETTING = 5;
@@ -51,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
     private static final int POS_HELP = 6;
     private static final int POS_PROFILE = 4;
     CircleImageView img;
+    FloatingActionButton fabcart;
     private String[] screenTitles;
     private Drawable[] screenIcons;
     BottomAppBar bottomAppBar ;
@@ -61,7 +66,15 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
-
+        fabcart = findViewById(R.id.floatingActionButton2);
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        fabcart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CartFragment frag = new CartFragment();
+                transaction.replace(R.id.container, frag);
+            }
+        });
 
 //        Toolbar toolbar = findViewById(R.id.toolbar);
 //        toolbar.setTitle("Hello User");
@@ -81,7 +94,10 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
         img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this,"Hello", Toast.LENGTH_SHORT).show();
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                Profile frag = new Profile();
+                transaction.replace(R.id.container,frag);
+                transaction.commit();
                 img.setBorderColor(Color(R.color.blue));
             }
         });
@@ -92,7 +108,7 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
         DrawerAdapter adapter = new DrawerAdapter(Arrays.asList(
            createItemFor(POS_CART),
            createItemFor(POS_NOTIFICATION),
-           createItemFor(POS_OFFER),
+           createItemFor(POS_ORDER),
            createItemFor(POS_HELP),
            createItemFor(POS_PRIVACY),
            createItemFor(POS_SETTING),
@@ -118,10 +134,10 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
 
     private DrawerItem createItemFor(int positon){
         return new SimpleItem(screenIcons[positon], screenTitles[positon])
-                .withIconTint(R.color.blue)
+                .withIconTint(R.color.black)
                 .withTextTint(R.color.black)
-                .withSelectedIconTint(Color(R.color.blue))
-                .withSelectedTextTint(Color(R.color.blue));
+                .withSelectedIconTint(R.attr.icon)
+                .withSelectedTextTint(R.attr.icon);
     }
 
     @ColorInt
@@ -156,6 +172,12 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
     public void onItemSelected(int positon) {
         img.setBorderColor(Color(R.color.profile));
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+        if(positon == POS_ORDER)
+        {
+            Order order = new Order();
+            transaction.replace(R.id.container,order);
+        }
 
         if(positon == POS_SETTING){
             SettingFrag frag = new SettingFrag();

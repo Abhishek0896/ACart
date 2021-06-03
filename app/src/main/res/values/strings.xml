@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">A-Cart</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="query_1">My return was picked up but I haven\'t received my refund yet</string>
+    <string name="ans_1">Refund will be initiated after we receive the item and it passes the quality check. It may take 1 to 5 buisness days.</string>
+    <string name="query_2">MY PAYMENT HAS BEEN DEBITED MULTIPLE TIMES</string>
+    <string name="ans_2">We are sorry that your payment got debited multiple times. The extra amount debited from your bank/card account will be automatically refunded.</string>
+    <string name="query_3">MY BANK ACCOUNT DETAILS FOR REFUND</string>
+    <string name="ans_3">If you have recieved E-mail/SMS from us regarding refund processing. please send us the following details to process your refund as the earlier bank details which were shared by you might be incorrect.</string>
+    <string name="query_4">I AM UNABLE TO LOGIN TO MY ACCOUNT</string>
+    <string name="ans_4">You can recover your password using the \'Forgot Password\' link in the login page. If you are still unable to access your account, then please call our customer care.</string>
+    <string name="query_5">I AM UNABLE TO APPLY COUPON</string>
+    <string name="ans_5">You can apply a coupon on a cart page before you place an order.</string>
+    <string name="query_6">I WANT TO UNSUBSCRIBE FROM PROMOTIONAL EMAILS AND SMS</string>
+    <string name="ans_6">To unsubscribe from promotional SMSes please email us.</string>
+    <string name="query_7">Other</string>
+    <string name="ans_7">Sorry! We are not able to recommend a solution. Please email us.</string>
 </resources>

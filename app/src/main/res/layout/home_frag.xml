@@ -1,26 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="20dp"
-        android:text="Popular"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/uname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -28,7 +14,7 @@
         android:layout_marginTop="32dp"
         android:fontFamily="@font/rubik_bold"
         android:text="Hello, Abhishek...!!!"
-        android:textColor="@color/black"
+        android:textColor="?android:attr/textColorPrimary"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -38,10 +24,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:fontFamily="@font/satisfy"
         android:text="An exciting place for the whole family to shop."
+        android:textColor="?android:attr/textColorSecondary"
         android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintStart_toStartOf="@+id/uname"
+        app:layout_constraintTop_toBottomOf="@+id/uname" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile"
@@ -88,49 +76,51 @@
         app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName"
         app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/menu_short" />
+        app:srcCompat="@drawable/menu_short"
+        app:tint="?android:attr/textColorPrimary" />
 
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/lobster"
+        android:text="Popular Products"
+        android:textColor="?android:attr/textColorTertiary"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scroll"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="400dp"
+        android:layout_height="568dp"
+        android:layout_marginTop="10dp"
         android:fillViewport="true"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName">
+        app:layout_constraintTop_toBottomOf="@+id/textView8">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/textView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/lobster"
-                android:text="Popular Products"
-                android:textColor="#C2C2C2"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout"
                 android:layout_width="0dp"
                 android:layout_height="250dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="8dp"
                 android:background="@drawable/layout_bg"
+                app:layout_constraintBottom_toTopOf="@+id/textView7"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView8">
+                app:layout_constraintTop_toTopOf="parent">
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/poplist"
@@ -154,7 +144,7 @@
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/lobster"
                 android:text="Recommended Products"
-                android:textColor="#C2C2C2"
+                android:textColor="?android:attr/textColorTertiary"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -162,25 +152,25 @@
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
 
-<!--            <com.linyuzai.expandablegridview.ExpandableGridView-->
-<!--                android:id="@+id/egv"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="0dp"-->
-<!--                android:layout_marginTop="8dp"-->
-<!--                app:group_clickable="true"-->
-<!--                app:horizontal_spacing="10dp"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/textView7"-->
-<!--                app:overwrite_measure="true"-->
-<!--                app:vertical_spacing="10dp" />-->
+            <!--            <com.linyuzai.expandablegridview.ExpandableGridView-->
+            <!--                android:id="@+id/egv"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="0dp"-->
+            <!--                android:layout_marginTop="8dp"-->
+            <!--                app:group_clickable="true"-->
+            <!--                app:horizontal_spacing="10dp"-->
+            <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toBottomOf="@+id/textView7"-->
+            <!--                app:overwrite_measure="true"-->
+            <!--                app:vertical_spacing="10dp" />-->
 
 
             <RelativeLayout
                 android:layout_width="0dp"
-                android:layout_height="300dp"
-                android:layout_marginTop="8dp"
+                android:layout_height="350dp"
+                android:layout_marginTop="10dp"
                 android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -188,11 +178,12 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView7">
 
+
                 <GridView
+
                     android:id="@+id/exclusiveproductgrid"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
                     android:clickable="true"
                     android:horizontalSpacing="10dp"
                     android:nestedScrollingEnabled="true"
@@ -200,6 +191,7 @@
                     android:padding="15dp"
                     android:verticalSpacing="10dp"
                     app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
 
             </RelativeLayout>
 

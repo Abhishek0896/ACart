@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@drawable/round_background"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <!--   <androidx.appcompat.widget.Toolbar-->
@@ -41,9 +41,11 @@
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/round_background"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -51,17 +53,13 @@
     </FrameLayout>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/bootommenucontainer"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_gravity="bottom"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
-
-
-
-
-
 
 
         <com.google.android.material.bottomappbar.BottomAppBar
@@ -72,8 +70,8 @@
             android:layout_gravity="bottom"
 
             app:contentInsetLeft="0dp"
-            app:contentInsetStart="0dp"
-            >
+            app:contentInsetStart="0dp">
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -84,30 +82,31 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:layout_marginBottom="8dp"
-                    android:background="#ffffff"
-                    app:srcCompat="@drawable/home"
+                    android:background="@android:color/transparent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/second_menu_item"
                     app:layout_constraintHorizontal_chainStyle="packed"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/home" />
 
                 <ImageButton
                     android:id="@+id/second_menu_item"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/product"
-                    android:background="#ffffff"
+                    android:background="@android:color/transparent"
                     app:layout_constraintBottom_toBottomOf="@+id/first_menu_item"
                     app:layout_constraintEnd_toStartOf="@+id/placeholder"
                     app:layout_constraintHorizontal_chainStyle="packed"
-                    app:layout_constraintStart_toEndOf="@+id/first_menu_item" />
+                    app:layout_constraintStart_toEndOf="@+id/first_menu_item"
+                    app:srcCompat="@drawable/product" />
 
                 <View
                     android:id="@+id/placeholder"
                     android:layout_width="70dp"
                     android:layout_height="0dp"
                     android:visibility="invisible"
+
                     app:layout_constraintBottom_toBottomOf="@+id/first_menu_item"
                     app:layout_constraintEnd_toStartOf="@+id/third_menu_item"
                     app:layout_constraintHorizontal_chainStyle="packed"
@@ -118,28 +117,27 @@
                     android:id="@+id/third_menu_item"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/fav_bottom"
-                    android:background="#ffffff"
+                    android:background="@android:color/transparent"
                     app:layout_constraintBottom_toBottomOf="@+id/first_menu_item"
                     app:layout_constraintEnd_toStartOf="@+id/fourth_menu_item"
                     app:layout_constraintHorizontal_chainStyle="packed"
-                    app:layout_constraintStart_toEndOf="@+id/placeholder" />
+                    app:layout_constraintStart_toEndOf="@+id/placeholder"
+                    app:srcCompat="@drawable/fav_bottom" />
 
                 <ImageButton
                     android:id="@+id/fourth_menu_item"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/pay"
-                    android:background="#ffffff"
+                    android:background="@android:color/transparent"
                     app:layout_constraintBottom_toBottomOf="@+id/first_menu_item"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_chainStyle="packed"
                     app:layout_constraintStart_toEndOf="@+id/third_menu_item"
-                    app:layout_constraintTop_toTopOf="@+id/first_menu_item" />
+                    app:layout_constraintTop_toTopOf="@+id/first_menu_item"
+                    app:srcCompat="@drawable/pay" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.bottomappbar.BottomAppBar>
-
 
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton

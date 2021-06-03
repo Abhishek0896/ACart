@@ -1,11 +1,11 @@
 package com.shop.a_cart.model;
 
-public class Popular {
+public class Product {
     String name;
     String price;
     Integer url;
 
-    public Popular(String name, String price, Integer url) {
+    public Product(String name, String price, Integer url) {
         this.name = name;
         this.price = price;
         this.url = url;

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    android:elevation="25dp"
+    android:padding="25dp"
+    app:cardCornerRadius="15dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#1A673AB7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/additem"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/add" />
+
+        <View
+            android:id="@+id/subitem"
+            android:layout_width="25dp"
+            android:layout_height="4dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/additem"
+            app:layout_constraintStart_toStartOf="@+id/additem"
+            app:layout_constraintTop_toBottomOf="@+id/additem"
+            app:layout_constraintVertical_bias="0.25" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/cart_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/additem"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <ImageView
+                android:id="@+id/cartimg"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginEnd="153dp"
+                android:layout_marginRight="153dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/buy_1" />
+
+            <TextView
+                android:id="@+id/cartname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+                android:fontFamily="@font/rubik_bold_italic"
+                android:text="Red T-Shirt"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@+id/cartimg"
+                app:layout_constraintStart_toEndOf="@+id/cartimg"
+                app:layout_constraintTop_toTopOf="@+id/cartimg"
+                app:layout_constraintVertical_bias="0.3" />
+
+            <TextView
+                android:id="@+id/cartprice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/montserrat"
+                android:text="$ 17.05"
+                android:textColor="#CE93D8"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@+id/cartimg"
+                app:layout_constraintTop_toBottomOf="@+id/cartname" />
+
+            <TextView
+                android:id="@+id/cartqty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:text="X 2"
+                app:layout_constraintStart_toEndOf="@+id/cartprice"
+                app:layout_constraintTop_toBottomOf="@+id/cartname" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

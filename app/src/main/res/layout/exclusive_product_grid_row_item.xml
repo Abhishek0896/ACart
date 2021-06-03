@@ -45,7 +45,7 @@
                 android:fontFamily="@font/montserrat_bold"
                 android:gravity="bottom"
                 android:text="Diamong Ring"
-                android:textColor="#000000"
+                android:textColor="@color/black"
                 android:textSize="16sp" />
 
             <TextView
@@ -58,7 +58,7 @@
                 android:autoText="true"
                 android:fontFamily="@font/montserrat"
                 android:text="$101.67"
-                android:textColor="#D11010"
+                android:textColor="#292424"
                 android:textSize="12sp"
                 app:autoSizeMaxTextSize="12sp"
                 app:autoSizeMinTextSize="8sp" />

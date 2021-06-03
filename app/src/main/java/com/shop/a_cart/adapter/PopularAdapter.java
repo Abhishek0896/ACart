@@ -13,17 +13,17 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.shop.a_cart.R;
-import com.shop.a_cart.model.Popular;
+import com.shop.a_cart.model.Product;
 
 import java.util.List;
 
 public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.PopularViewHolder> {
 Context context;
-List<Popular> popularList;
+List<Product> productList;
 
-    public PopularAdapter(Context context, List<Popular> popularList) {
+    public PopularAdapter(Context context, List<Product> productList) {
         this.context = context;
-        this.popularList = popularList;
+        this.productList = productList;
     }
 
     @NonNull
@@ -35,14 +35,14 @@ List<Popular> popularList;
 
     @Override
     public void onBindViewHolder(@NonNull PopularViewHolder holder, int position) {
-        holder.imageView.setImageResource(popularList.get(position).getUrl());
-        holder.popname.setText(popularList.get(position).getName());
-        holder.popprice.setText(popularList.get(position).getPrice());
+        holder.imageView.setImageResource(productList.get(position).getUrl());
+        holder.popname.setText(productList.get(position).getName());
+        holder.popprice.setText(productList.get(position).getPrice());
     }
 
     @Override
     public int getItemCount() {
-        return popularList.size();
+        return productList.size();
     }
 
     public static final class PopularViewHolder extends RecyclerView.ViewHolder {
