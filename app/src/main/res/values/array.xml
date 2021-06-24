@@ -14,7 +14,7 @@
     </string-array>
 
     <array name="id_activityScreenIcon">
-        <item>@drawable/cart</item>
+        <item>@drawable/carton</item>
         <item>@drawable/offer</item>
         <item>@drawable/wishlist</item>
         <item>@drawable/notification</item>

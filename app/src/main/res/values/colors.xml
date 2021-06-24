@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="cat1">#FFEAED</color>
+    <color name="cat2">#DEF6FF</color>
+    <color name="cat3">#E1E2FF</color>
+    <color name="cat4">#E4F0FF</color>
+    <color name="cat5">#FFE4F6</color>
+    <color name="cat6">#FFF9E7</color>
+    <color name="cat7">#E5F0F7</color>
+
     <color name="recyler_delete">#FFFFCDD2</color>
     <color name="purple_200">#FFBB86FC</color>
     <color name="mainbg">#1A0C0C0C</color>
+    <color name="activefav">#E91E63</color>
+    <color name="inactivefav">#C5C2C2</color>
 <!--    #1A673AB7-->
     <color name="purple_500">#FF6200EE</color>
     <color name="main_color">#E1BEE7</color>
@@ -46,4 +56,26 @@
     <color name="secondary3_dark2">#b0b0b6</color>
     <!-- 60% opaque black (use whatever transparent color works best for you) -->
     <color name="full_image_scrim">#99AFA9A9</color>
+
+    //dots inactive colors
+    <color name="dark_one">#dcdcdc</color>
+    <color name="dark_two">#dcdcdc</color>
+    <color name="dark_three">#dcdcdc</color>
+
+    //dot active color
+    <color name="orange_one">#e65252</color>
+    <color name="orange_two">#e65252</color>
+    <color name="orange_three">#e65252</color>
+
+    <array name="active">
+        <item name="@color/orange_one"></item>
+        <item name="@color/orange_two"></item>
+        <item name="@color/orange_three"></item>
+    </array>
+    <array name="inactive">
+        <item name="@color/dark_one"></item>
+        <item name="@color/dark_two"></item>
+        <item name="@color/dark_three"></item>
+    </array>
+
 </resources>

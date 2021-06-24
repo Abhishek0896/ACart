@@ -21,6 +21,7 @@ import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.shop.a_cart.Fragments.CartFragment;
+import com.shop.a_cart.Fragments.Category;
 import com.shop.a_cart.Fragments.HelpFrag;
 import com.shop.a_cart.Fragments.Home;
 import com.shop.a_cart.Fragments.NotificationFragment;
@@ -200,7 +201,7 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
         }
 
         else if(positon == POS_NOTIFICATION){
-            NotificationFragment frag = new NotificationFragment();
+            Category frag = new Category();
             transaction.replace(R.id.container,frag);
         }
 
