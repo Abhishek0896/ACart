@@ -42,5 +42,10 @@ public class MyPref {
     public Boolean getBoolean(String key, Boolean defaultValue){
         return preferences.getBoolean(key, defaultValue);
     }
+    public void remove(String key){
+        editor = preferences.edit();
+        editor.remove(key);
+        editor.apply();
+    }
 
 }

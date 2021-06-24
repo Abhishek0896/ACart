@@ -34,6 +34,8 @@ import com.shop.a_cart.adapter.Drawer.DrawerAdapter;
 import com.shop.a_cart.model.Drawer.DrawerItem;
 import com.shop.a_cart.model.Drawer.SimpleItem;
 import com.shop.a_cart.model.Drawer.SpaceItem;
+import com.shop.a_cart.utils.Const;
+import com.shop.a_cart.utils.MyPref;
 import com.yarolegovich.slidingrootnav.SlidingRootNav;
 import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
 
@@ -62,11 +64,15 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
     BottomAppBar bottomAppBar ;
     private SlidingRootNav slidingRootNav;
     CoordinatorLayout maincontainer;
+    MyPref pref;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
+
+        pref = new MyPref(MainActivity.this);
+
         fabcart = findViewById(R.id.floatingActionButton2);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         fabcart.setOnClickListener(new View.OnClickListener() {
@@ -216,6 +222,7 @@ public class MainActivity extends AppCompatActivity implements DrawerAdapter.OnI
         }
 
         else if(positon == POS_LOGOUT){
+            pref.remove(Const.USER_AUTH_TOKEN);
             finish();
         }
 

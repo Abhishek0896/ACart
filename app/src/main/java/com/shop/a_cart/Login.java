@@ -23,12 +23,6 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        String android_id = Secure.getString(this.getContentResolver(),
-                Secure.ANDROID_ID);
         getSupportFragmentManager().beginTransaction().replace(R.id.contain, new Signin()).commit();
-
-
-
-
     }
 }

@@ -26,6 +26,7 @@ import com.airbnb.lottie.LottieAnimationView;
 import com.bumptech.glide.Glide;
 import com.daimajia.easing.Glider;
 import com.daimajia.easing.Skill;
+import com.shop.a_cart.utils.Const;
 import com.shop.a_cart.utils.MyPref;
 
 import static com.shop.a_cart.utils.Const.IS_FIRST_TIME_LAUNCH;
@@ -162,6 +163,7 @@ public class Guide extends AppCompatActivity {
             return view;
         }
 
+
         @Override
         public int getCount() {
             return layouts.length ;
@@ -181,7 +183,10 @@ public class Guide extends AppCompatActivity {
 
     private void launchHomeScreen() {
 //        pref.putBoolean(IS_FIRST_TIME_LAUNCH, false);
-        startActivity(new Intent(context,MainActivity.class));
+        if(!pref.getString(Const.USER_AUTH_TOKEN, "").isEmpty())
+            startActivity(new Intent(context, MainActivity.class));
+        else
+            startActivity(new Intent(context, Login.class));
         finish();
     }
 
